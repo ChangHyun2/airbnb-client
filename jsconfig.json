@@ -4,18 +4,18 @@
     "module": "commonjs",
     "jsx": "react",
     "paths": {
-      "@api/*": ["api/*"],
-      "@hooks": ["hooks/index"],
-      "@utils": ["utils/index"],
-      "S": ["lib/S/index"],
-      "Former": ["lib/Former/index"],
-      "@variable": ["variable/index"],
+      "@/*": ["/*"],
+      "@hooks": ["hooks/index.js"],
+      "@utils": ["utils/index.js"],
+      "S": ["lib/S/index.js"],
+      "Former": ["lib/Former/index.js"],
+      "@variable": ["variable/index.js"],
       "@page/*": ["page/*"],
       "@component/*": ["component/*"],
       "@UI/*": ["component/UI/*"],
       "@context/*": ["context/*"],
-      "@lib/*": ["lib/*"],
-      "@/*": ["/*"]
+      "@api/*": ["api/*"],
+      "@lib/*": ["lib/*"]
     }
   }
 }
