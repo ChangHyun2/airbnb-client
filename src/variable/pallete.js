@@ -1,4 +1,4 @@
-import { toCamelCase } from '@utils';
+import { toCamelCase } from '@util';
 
 const palleteScheme = [
   'black',

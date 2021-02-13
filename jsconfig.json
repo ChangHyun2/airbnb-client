@@ -6,10 +6,11 @@
     "paths": {
       "@/*": ["/*"],
       "@hooks": ["hooks/index.js"],
-      "@utils": ["utils/index.js"],
+      "@util": ["utils/index.js"],
       "S": ["lib/S/index.js"],
       "Former": ["lib/Former/index.js"],
       "@variable": ["variable/index.js"],
+      "@routes/*": ["routes/*"],
       "@page/*": ["page/*"],
       "@component/*": ["component/*"],
       "@UI/*": ["component/UI/*"],

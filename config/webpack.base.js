@@ -10,10 +10,11 @@ const aliases = {
   '@component': 'component',
   '@context': 'context',
   '@hooks': 'hooks/index.js',
-  '@utils': 'utils/index.js',
+  '@util': 'util/index.js',
+  '@variable': 'variable/index.js',
   '@api': 'api',
   '@page': 'page',
-  '@variable': 'variable/index.js',
+  '@routes': 'routes',
   S: 'lib/S/index.js',
   Former: 'lib/Former/index.js',
 };

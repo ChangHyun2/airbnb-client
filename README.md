@@ -1,5 +1,50 @@
-### 
+## 프로젝트 설정 순서
 
+- 전역 환경 세팅
+  - provider
+    - react router dom
+    - react query
+    - auth context
+    - MQ context
+  - css
+    - normalize.css
+    - reset.css
+    - theme
+    - custom
+  - lib/S
+    - 재사용 css 값 , 레이아웃 컴포넌트 정의
+
+### context
+- global
+  - auth
+  - MQ (media query)
+- page
+### hooks
+- useToggle
+- useDarkMode
+  - DarkModeToggler에서 사용
+- useMQ
+  - Show에서 사용
+### routes
+### page
+
+### css
+- index.css
+  - default css 속성들
+- theme.css
+  - theme css variable
+  - css variable 변수명은 @variable/pallete.js에 저장 
+  - 컴포넌트에서는 pallete.js 변수명을 사용
+### variable
+- breakpoint
+  - bootstrap bp
+- pallete
+  - css 변수명 camelcase로 변환
+- zIndex
+  - bootstrap z-index
+### util
+- callAll
+- toCamelCase
 ### package.json
 
 ```js

@@ -6,3 +6,4 @@ export * from './typo';
 export * from './zIndex';
 export * from './effect';
 export * from './size';
+export * from './alignSelf';

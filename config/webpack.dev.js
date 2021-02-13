@@ -13,7 +13,7 @@ const devConfig = {
   devtool: 'cheap-module-source-map',
   output: {
     path: paths.appBuild,
-    filename: 'static/js/[name].[hash].js',
+    filename: 'static/js/[name].js',
     chunkFilename: 'static/js/[name].chunk.js',
   },
   optimization: {

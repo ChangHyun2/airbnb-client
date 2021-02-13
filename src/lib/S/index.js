@@ -9,9 +9,11 @@ import * as typo from './stylesheet/typo';
 import * as zIndex from './stylesheet/zIndex';
 import * as effect from './stylesheet/effect';
 import * as size from './stylesheet/size';
+import * as alignSelf from './stylesheet/alignSelf';
 
 import * as AlignChildComponents from './components/alignChild';
 import * as TextComponents from './components/text';
+import * as AlignSelfComponents from './components/alignSelf';
 
 const S = {
   pallete,
@@ -19,11 +21,13 @@ const S = {
   ...styling,
   ...zIndex,
   ...typo,
+  ...alignSelf,
   ...alignChild,
   ...effect,
   ...size,
 
   ...AlignChildComponents,
+  ...AlignSelfComponents,
   ...TextComponents,
 };
 

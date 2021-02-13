@@ -1,5 +1,6 @@
 export const flex = `
     display:flex;
+    flex-wrap:wrap;
 `;
 export const row = `
     ${flex}
