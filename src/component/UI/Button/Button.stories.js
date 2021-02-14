@@ -6,7 +6,6 @@ import NormalButton from './Button';
 import PillButton from './PillButton';
 import FluidButton from './FluidButton';
 import RoundButton from './RoundButton';
-import { fadeIn, fadeOut, scaleDown, scaleUp } from '../animation';
 import { googleIcon, facebookIcon } from '@UI/Icon';
 import { TripleDotLoading } from '@UI/Loading';
 

@@ -1,33 +1,44 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { TripleDotLoading as TripleDot } from './index';
-import s from 'S';
 
 export default {
   title: 'Loading',
-  decorators: [
-    (Story) => (
-      <div style={{ width: '500px', margin: '20px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 };
 
-const Wrapper = styled.div`
-  ${s.center}
-  margin-bottom: 50px;
-`;
+const argTypes = {
+  size: {
+    control: {
+      type: 'number',
+    },
+    defaultValue: 10,
+  },
+  color1: {
+    control: {
+      type: 'color',
+    },
+  },
+  color2: {
+    control: {
+      type: 'color',
+    },
+  },
+  color3: {
+    control: {
+      type: 'color',
+    },
+  },
+};
 
-export const TripleDotLoading = () => (
+export const TripleDotLoading = (props) => (
   <>
-    {[5, 15, 30].map((size) => (
-      <>
-        <h2>size : {size}</h2>
-        <Wrapper>
-          <TripleDot size={size} />
-        </Wrapper>
-      </>
-    ))}
+    <h2>size : {props.size}</h2>
+    <p>adjust a size in controls tab</p>
+    <TripleDot
+      size={props.size}
+      colors={[props.color1, props.color2, props.color3]}
+    />
   </>
 );
+
+TripleDotLoading.argTypes = argTypes;

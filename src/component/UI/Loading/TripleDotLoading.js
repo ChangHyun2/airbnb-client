@@ -29,13 +29,13 @@ const Wrapper = styled.span`
 `;
 
 const Dot = styled.span`
-  ${({ size }) => `
+  ${({ size, colors }) => `
     width: ${size}px;
     height: ${size}px;
+    background: linear-gradient(-90deg, ${colors.join(',')});
   `}
   display: inline-block;
-  background: linear-gradient(-90deg, #666, #999, #bbb, #fff);
-  background-size: 600% 600%;
+  background-size: 200% 200%;
   animation: ${gradient} 1s infinite, ${flick} 1s infinite;
   line-height: 1;
   vertical-align: middle;
@@ -53,12 +53,16 @@ const Dot = styled.span`
   }
 `;
 
-export const TripleDotLoading = ({ size = 7, ...otherProps }) => {
+export const TripleDotLoading = ({
+  size = 7,
+  colors = ['#666', '#999', '#bbb', '#fff'],
+  ...otherProps
+}) => {
   return (
     <Wrapper {...otherProps}>
-      <Dot size={size} />
-      <Dot size={size} />
-      <Dot size={size} />
+      <Dot size={size} colors={colors} />
+      <Dot size={size} colors={colors} />
+      <Dot size={size} colors={colors} />
     </Wrapper>
   );
 };
