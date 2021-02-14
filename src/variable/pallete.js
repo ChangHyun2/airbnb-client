@@ -1,34 +1,25 @@
-import { toCamelCase } from '@util';
-
-const palleteScheme = [
-  'black',
-  'black-1',
-  'black-2',
-  'black-3',
-  'black-4',
-  'black-5',
-  'white',
-  'white-grey-0',
-  'white-grey-1',
-  'grey-0',
-  'grey-1',
-  'grey-2',
-  'grey-3',
-  'grey-4',
-  'grey-5',
-  'grey-6',
-  'grey-7',
-  'grey-8',
-  'primary',
-  'primary-dark',
-  'secondary',
-  'secondary-dark',
-  'facebook',
-  'facebook-dark',
-];
-
-export const pallete = {};
-
-palleteScheme.forEach((variable) => {
-  pallete[variable.split('-').map(toCamelCase).join('')] = `var(--${variable})`;
-});
+export const pallete = {
+  black: 'var(--black)',
+  black1: 'var(--black-1)',
+  black2: 'var(--black-2)',
+  black3: 'var(--black-3)',
+  black4: 'var(--black-4)',
+  black5: 'var(--black-5)',
+  white: 'var(--white)',
+  whiteGrey0: 'var(--white-grey-0)',
+  whiteGrey1: 'var(--white-grey-1)',
+  grey0: 'var(--grey-0)',
+  grey1: 'var(--grey-1)',
+  grey2: 'var(--grey-2)',
+  grey3: 'var(--grey-3)',
+  grey4: 'var(--grey-4)',
+  grey5: 'var(--grey-5)',
+  grey6: 'var(--grey-6)',
+  grey7: 'var(--grey-7)',
+  grey8: 'var(--grey-8)',
+  primary: 'var(--primary)',
+  primaryDark: 'var(--primary-dark)',
+  secondary: 'var(--secondary)',
+  facebook: 'var(--facebook)',
+  facebookDark: 'var(--facebook-dark)',
+};

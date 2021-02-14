@@ -1,4 +1,5 @@
 import {
+  fluid,
   grid,
   grid1,
   grid2,
@@ -13,6 +14,9 @@ import {
 
 import styled from '@emotion/styled';
 
+export const Fluid = styled.div`
+  ${fluid}
+`;
 export const Grid = styled.div`
   ${grid}
 `;

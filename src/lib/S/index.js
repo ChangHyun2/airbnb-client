@@ -10,13 +10,14 @@ import * as zIndex from './stylesheet/zIndex';
 import * as effect from './stylesheet/effect';
 import * as size from './stylesheet/size';
 import * as alignSelf from './stylesheet/alignSelf';
+import * as baseComponent from './stylesheet/baseComponent';
 
 import * as AlignChildComponents from './components/alignChild';
 import * as TextComponents from './components/text';
 import * as AlignSelfComponents from './components/alignSelf';
 
 const S = {
-  pallete,
+  ...pallete,
   ...mediaQuery,
   ...styling,
   ...zIndex,
@@ -25,6 +26,7 @@ const S = {
   ...alignChild,
   ...effect,
   ...size,
+  ...baseComponent,
 
   ...AlignChildComponents,
   ...AlignSelfComponents,

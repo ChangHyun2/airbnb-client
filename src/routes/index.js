@@ -1,6 +1,9 @@
 import React from 'react';
+import styled from '@emotion/styled';
 import { Switch, Route } from 'react-router-dom';
 import Show from '@component/Show';
+import FluidButton from '@UI/Button/FluidButton';
+import { adventureIcon } from '@UI/Icon';
 
 export default function Routes() {
   return (

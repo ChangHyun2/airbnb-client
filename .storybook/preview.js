@@ -1,19 +1,7 @@
-import React from 'react';
-import { Global, css } from '@emotion/react';
-
-export const decorators = [
-  (story) => (
-    <>
-      <Global
-        styles={css`
-          body {
-          }
-        `}
-      />
-      <Story />
-    </>
-  ),
-];
+import '../src/css/index.css';
+import '../src/css/normalize.css';
+import '../src/css/reset.css';
+import '../src/css/theme.css';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

@@ -15,13 +15,13 @@ export const under = ['sm', 'md', 'lg', 'xl'].reduce(
   (under, bp, i) => ({
     ...under,
     [bp]: (cssRules) =>
-      `@media only screen and (max-width:${breakpoint[i]}px){${cssRules}}`,
+      `@media only screen and (max-width:${breakpoint[i] - 1}px){${cssRules}}`,
   }),
   {}
 );
 
-export const smOnly = (cssRules) =>
-  `@media only screen and (max-width: ${breakpoint[0]}px){${cssRules}}`;
+export const xsOnly = (cssRules) =>
+  `@media only screen and (max-width: ${breakpoint[0] - 1}px){${cssRules}}`;
 
 export const smTo = ['md', 'lg', 'xl'].reduce(
   (smTo, bp, i) => ({
