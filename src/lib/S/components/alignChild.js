@@ -7,6 +7,7 @@ import {
   col,
   colCenter,
   colSpaceBetween,
+  relative,
 } from '../stylesheet/alignChild';
 
 export const Flex = styled.div`
@@ -34,4 +35,8 @@ export const ColCenter = styled.div`
 
 export const ColSpaceBetween = styled.div`
   ${colSpaceBetween}
+`;
+
+export const Relative = styled.div`
+  ${relative}
 `;

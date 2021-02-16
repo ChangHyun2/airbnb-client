@@ -10,6 +10,7 @@ import {
   grid7,
   grid8,
   grid9,
+  absolute,
 } from '../stylesheet/alignSelf';
 
 import styled from '@emotion/styled';
@@ -46,4 +47,8 @@ export const Grid8 = styled.div`
 `;
 export const Grid9 = styled.div`
   ${grid9}
+`;
+
+export const Absolute = styled.div`
+  ${absolute}
 `;

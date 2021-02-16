@@ -17,15 +17,49 @@ const borderRadius = {
 };
 
 const Button = React.forwardRef(
-  ({ size = 'sm', children, ...otherProps }, ref) => {
+  ({ size = 'sm', children, effect, ...otherProps }, ref) => {
+    const dynamicStyles = [];
+
+    if (effect) {
+      switch (effect) {
+        case 'outline':
+          dynamicStyles.push(`  
+              position:relative;
+      
+              &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: calc(100% + 10px);
+                height: calc(100% + 10px);
+                border: 1px solid transparent;
+                border-radius: 13px;
+                transition: border-color 0.7s;
+              }
+          
+              &:focus::before {
+                border-color: #555;
+              }
+            `);
+          break;
+      }
+    }
+
+    dynamicStyles.push(`
+      padding: ${padding[size]};
+      border-radius: ${borderRadius[size]};
+    `);
+
     return (
       <BaseButton
         ref={ref}
         css={css`
-          padding: ${padding[size]};
-          border-radius: ${borderRadius[size]};
+          ${dynamicStyles.join('')}
         `}
         {...otherProps}
+        effect={effect}
         size={size}
       >
         {children}

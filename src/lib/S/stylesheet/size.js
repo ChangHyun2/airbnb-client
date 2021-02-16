@@ -13,6 +13,7 @@ export const mdTwoSquare = size('30px', '60px');
 export const lgTwoSquare = size('40px', '80px');
 export const xlTwoSquare = size('60px', '120px');
 
+/* delete below */
 export const padding = (pad) => `
     padding: ${pad};
 `;

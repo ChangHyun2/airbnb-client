@@ -41,3 +41,20 @@ export const grid8 = `
 export const grid9 = `
   width: 74.9999%;
 `;
+
+export const mb1 = `
+  margin-bottom: 10px;
+`;
+export const mb2 = `
+  margin-bottom: 20px;
+`;
+export const mb3 = `
+  margin-bottom: 30px;
+`;
+export const mb4 = `
+  margin-bottom: 40px;
+`;
+export const absolute = `
+  position:absolute;
+  top:0;
+`;

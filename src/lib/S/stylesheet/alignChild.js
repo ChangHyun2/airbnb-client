@@ -28,3 +28,7 @@ export const colSpaceBetween = `
     ${col}
     justify-content:space-between;
 `;
+
+export const relative = `
+    position:relative;
+`;

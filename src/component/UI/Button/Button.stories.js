@@ -6,6 +6,7 @@ import NormalButton from './Button';
 import PillButton from './PillButton';
 import FluidButton from './FluidButton';
 import RoundButton from './RoundButton';
+import GhostButton from './GhostButton';
 import { googleIcon, facebookIcon } from '@UI/Icon';
 import { TripleDotLoading } from '@UI/Loading';
 
@@ -16,8 +17,11 @@ export default {
 // Helper Components for storybook rendering
 
 const LoadingComponentMap = {
-  TripleDotLoading,
+  GreyLoading: TripleDotLoading,
+  BlackLoading: () => <TripleDotLoading colors={['#000', '#333', '#666']} />,
+  PinkLoading: () => <TripleDotLoading colors={['#fff', '#fcc', '#f99']} />,
 };
+
 const GoogleIcon = styled(googleIcon)`
   margin-right: 10px;
   width: 20px;
@@ -42,7 +46,15 @@ const argTypes = {
   theme: {
     control: {
       type: 'select',
-      options: [null, 'black', 'white', 'primary', 'secondary', 'inverted'],
+      options: [
+        null,
+        'black',
+        'white',
+        'primary',
+        'secondary',
+        'inverted',
+        'shadow',
+      ],
     },
     defaultValue: 'primary',
   },
@@ -73,6 +85,17 @@ const argTypes = {
     control: {
       type: 'select',
       options: [null, 'outline', 'scaleDown'],
+    },
+  },
+  href: {
+    control: {
+      type: 'text',
+    },
+  },
+  target: {
+    control: {
+      type: 'select',
+      options: [null, '_blank', '_self', '_parent', '_top'],
     },
   },
 };
@@ -136,4 +159,31 @@ Round.argTypes = {
     defaultValue: 'B',
   },
   LoadingComponent: null,
+};
+
+// GhostButton
+export const Ghost = (props) => (
+  <GhostButton underline={props.underline} {...props}>
+    {props.text}
+  </GhostButton>
+);
+Ghost.argTypes = {
+  text: {
+    control: 'text',
+    defaultValue: 'airbnb',
+  },
+  href: {
+    control: 'text',
+    defaultValue: '',
+  },
+  underline: {
+    control: 'boolean',
+  },
+  effect: {
+    control: {
+      type: 'select',
+      options: [null, 'underline'],
+    },
+    defaultValue: 'underline',
+  },
 };

@@ -11,6 +11,7 @@ import * as effect from './stylesheet/effect';
 import * as size from './stylesheet/size';
 import * as alignSelf from './stylesheet/alignSelf';
 import * as baseComponent from './stylesheet/baseComponent';
+import * as values from './stylesheet/values';
 
 import * as AlignChildComponents from './components/alignChild';
 import * as TextComponents from './components/text';
@@ -27,6 +28,7 @@ const S = {
   ...effect,
   ...size,
   ...baseComponent,
+  ...values,
 
   ...AlignChildComponents,
   ...AlignSelfComponents,

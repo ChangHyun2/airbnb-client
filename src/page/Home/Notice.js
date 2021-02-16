@@ -1,0 +1,25 @@
+import styled from '@emotion/styled';
+import { GhostButton } from '@UI/Button';
+import s from 'S';
+
+const StyledNotice = styled.div`
+  ${s.rowCenter}
+  ${s.textCenter}
+  ${s.fluid};
+  padding: 20px;
+  ${s.h14};
+  color: ${s.pallete.grey0};
+`;
+
+export default function Notice() {
+  return (
+    <StyledNotice>
+      <GhostButton
+        underline
+        href="https://www.airbnb.co.kr/resources/hosting-homes?persona=guest"
+      >
+        에어비앤비의 코로나19 대응 방안에 대한 최신 정보를 확인하세요.
+      </GhostButton>
+    </StyledNotice>
+  );
+}

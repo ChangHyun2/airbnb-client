@@ -3,7 +3,16 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import s from 'S';
 
-const { white, black, primary, secondary, grey0, grey5, grey6 } = s.pallete;
+const {
+  white,
+  black,
+  primary,
+  secondary,
+  grey0,
+  grey1,
+  grey5,
+  grey6,
+} = s.pallete;
 
 const themes = {
   black: {
@@ -31,6 +40,11 @@ const themes = {
     border: grey6,
     color: black,
   },
+  shadow: {
+    bg: white,
+    border: grey1,
+    color: black,
+  },
 };
 
 const fontSize = {
@@ -44,31 +58,23 @@ const Text = styled.span`
   vertical-align: middle;
 `;
 
-const staticStyles = `
-  ${s.baseButton}
-
+const staticStyle = `
+  ${s.baseButton} 
+  ${s.bold}
   &:disabled {
     background-color: ${grey0};
     border: 1px solid ${grey0};
     color: ${grey5};
   }
-
   transition: box-shadow 0.25s;
 `;
 
-const StyledBaseButton = styled.button`
-  ${staticStyles}
-`;
-
-const StyledBaseLinkButton = styled.a`
-  ${staticStyles}
-`;
-
-const BaseButton = React.forwardRef(function button(
+export const BaseButton = React.forwardRef(function button(
   {
     disabled = false,
     children,
     href,
+    target = '_blank',
     isActive = false,
     LoadingComponent,
     theme = 'primary',
@@ -79,18 +85,8 @@ const BaseButton = React.forwardRef(function button(
   },
   ref
 ) {
-  const Component = href ? StyledBaseLinkButton : StyledBaseButton;
-
-  const childrenComponent = (
-    <s.RowCenter>
-      {IconComponent ? (
-        <IconComponent width={fontSize[size]} height={fontSize[size]} />
-      ) : null}
-      <Text>{children}</Text>
-    </s.RowCenter>
-  );
-
-  const dynamicStyles = [];
+  const Component = href ? 'a' : 'button';
+  const dynamicStyles = [staticStyle];
 
   if (size) {
     dynamicStyles.push(`
@@ -106,60 +102,67 @@ const BaseButton = React.forwardRef(function button(
       color: ${color};
     `);
 
-    dynamicStyles.push(`
-      &:hover {
-        ${
-          theme === 'inverted'
-            ? `border-color: ${black}`
-            : `box-shadow: inset 0 0 30px rgba(0,0,0,0.08);`
-        }
-      }
-    `);
+    switch (theme) {
+      case 'inverted':
+        dynamicStyles.push(`
+          &:not(:disabled):hover{
+            border-color: ${black}
+          }
+        `);
+        break;
+
+      case 'shadow':
+        dynamicStyles.push(`
+          -webkit-transition: box-shadow .25s linear;
+          -moz-transition: box-shadow .25s linear;
+          -o-transition: box-shadow .25s linear;
+          transition: box-shadow .25s linear
+
+          box-shadow: inset 0 0 2px rgba(0,0,0,0.08);
+          &:not(:disabled):hover{
+            box-shadow: 0 0 1px #eee, 0 1px 2px #eee, 0px 3px 2px #eee;
+          }
+        `);
+        break;
+
+      default:
+        dynamicStyles.push(`
+        &:not(:disabled):hover{
+          box-shadow: inset 0 0 30px rgba(0,0,0,0.08);
+        }`);
+    }
   }
 
-  dynamicStyles.push(`fontsize:${fontSize[size]};`);
-
-  switch (effect) {
-    case 'outline':
-      dynamicStyles.push(`  
-        position:relative;
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: calc(100% + 10px);
-          height: calc(100% + 10px);
-          border: 1px solid transparent;
-          border-radius: 13px;
-          transition: border-color 0.7s;
-        }
-    
-        &:focus::before {
-          border-color: #555;
-        }
-      `);
-      break;
-
-    case 'scaleDown':
-      dynamicStyles.push(`
-        &:active{
-          transition: transform 0.3s;
-          transform: scale(0.90);  
-        }
-      `);
+  if (effect) {
+    switch (effect) {
+      case 'scaleDown':
+        dynamicStyles.push(`
+          &:active{
+            transition: transform 0.3s;
+            transform: scale(0.90);  
+          }
+        `);
+    }
   }
+
+  const childrenComponent = (
+    <s.RowCenter>
+      {IconComponent ? (
+        <IconComponent width={fontSize[size]} height={fontSize[size]} />
+      ) : null}
+      <Text>{children}</Text>
+    </s.RowCenter>
+  );
 
   return (
     <Component
       ref={ref}
       theme={theme}
-      disabled={disabled || isActive}
+      disabled={disabled}
       href={href}
       size={size}
       effect={effect}
+      target={target}
       css={css`
         ${dynamicStyles.join('')}
       `}

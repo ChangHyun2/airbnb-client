@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { TripleDotLoading as TripleDot } from './index';
 
 export default {
@@ -33,7 +32,7 @@ const argTypes = {
 export const TripleDotLoading = (props) => (
   <>
     <h2>size : {props.size}</h2>
-    <p>adjust a size in controls tab</p>
+    <p>You can adjust size and colors in controls tab</p>
     <TripleDot
       size={props.size}
       colors={[props.color1, props.color2, props.color3]}
