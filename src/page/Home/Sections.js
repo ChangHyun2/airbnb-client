@@ -13,6 +13,8 @@ const StyledSections = styled.div`
 
 const BannerSection = styled.div`
   ${s.baseImageWrapper}
+  background-color: ${s.pallete.black}
+  ${s.mb4}
 
   img{
     position:relative;
@@ -26,7 +28,7 @@ const BannerSection = styled.div`
   `)}
 
   ${s.over.sm(`
-    height: 600px;
+    height: 630px;
 
     img{
       object-fit:cover;
@@ -42,6 +44,7 @@ const BannerSection = styled.div`
 `;
 
 const BannerContent = styled(Section)`
+  display:block;
   ${s.absolute}
   top: 90px;
 
@@ -52,6 +55,14 @@ const BannerContent = styled(Section)`
     color : ${s.pallete.white}
   }
   
+
+  ${s.over.md(`
+    top: 340px;
+
+    p{
+      ${s.h42}
+    }
+  `)}
 `;
 
 export default function Sections() {
@@ -70,11 +81,98 @@ export default function Sections() {
             이제, 여행은
             <br /> 가까운 곳에서
           </p>
-          <Button theme="white" sm>
+          <Button theme="white" effect="scaleDown" sm>
             근처의 숙소 둘러보기
           </Button>
         </BannerContent>
       </BannerSection>
+      <Section>{'locations'}</Section>
+      <Section>{'어디에서나, 여행은 살아보는 거야!'}</Section>
+      <Section>{'세상을 만나는 특별한 방법'}</Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
+      <Section>
+        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
+      </Section>
     </StyledSections>
   );
 }

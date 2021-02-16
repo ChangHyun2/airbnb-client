@@ -7,9 +7,9 @@ import { searchIcon } from '@UI/Icon';
 import s from 'S';
 
 const StyledSearchBar = styled(Section)`
-  ${s.absolute}
-  width: 100%;
+  ${s.relative}
   z-index: 1;
+  width: 100%;
 
   transition: background-color 0.5s;
 

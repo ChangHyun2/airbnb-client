@@ -1,3 +1,4 @@
+export const h42 = 'font-size: 42px; line-height:52px;';
 export const h32 = 'font-size: 32px; line-height:36px;';
 export const h22 = 'font-size: 22px; line-height:26px;';
 export const h18 = 'font-size: 18px; line-height:22px;';
