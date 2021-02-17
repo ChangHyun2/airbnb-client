@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const aliases = {
   '@': '',
   '@UI': 'component/UI',
+  '@data': 'data',
   '@component': 'component',
   '@context': 'context',
   '@hooks': 'hooks/index.js',

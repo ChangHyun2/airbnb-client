@@ -32,3 +32,10 @@ export const colSpaceBetween = `
 export const relative = `
     position:relative;
 `;
+
+export const grid = ({ row, col, gap }) => `
+    --column-count: ${col};
+    grid-template-rows: repeat(${row}, auto);
+    grid-gap: ${gap};
+    grid-auto-flow: column;
+`;

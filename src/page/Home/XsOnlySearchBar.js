@@ -41,7 +41,7 @@ const SearchIcon = styled(searchIcon)`
   margin-right: 2px;
 `;
 
-export default function SearchBar() {
+export default function XsOnlySearchBar() {
   const ref = useRef();
   const sticked = useDetectSticked(ref);
 

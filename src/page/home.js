@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Section from '@UI/Section';
+import Show from '@component/Show';
 import Notice from './Home/Notice';
-import SearchBar from './Home/SearchBar';
+import XsOnlySearchBar from './Home/XsOnlySearchBar';
+import OverMdNavBar from './Home/OverMdNavBar';
 import Sections from './Home/Sections';
 import s from 'S';
 
@@ -15,7 +16,12 @@ export default function home() {
     <StyledHome>
       <Notice />
       <s.Relative>
-        <SearchBar />
+        <Show.onlyXs>
+          <XsOnlySearchBar />
+        </Show.onlyXs>
+        <Show.overMd>
+          <OverMdNavBar />
+        </Show.overMd>
         <Sections />
       </s.Relative>
     </StyledHome>

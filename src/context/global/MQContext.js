@@ -14,10 +14,20 @@ export const MQContextProvider = (props) => {
   );
   const isOverMd = useMQ(`screen and (min-width: ${md}px)`);
   const isUnderMd = useMQ(`screen and (max-width: ${md}px)`);
+  const isOverXl = useMQ(`screen and (min-width: ${xl}px)`);
+  const isUnderXl = useMQ(`screen and (max-width: ${xl}px)`);
 
   return (
     <MQContext.Provider
-      value={{ isOnlyXs, isOverSm, isSmToMd, isOverMd, isUnderMd }}
+      value={{
+        isOnlyXs,
+        isOverSm,
+        isSmToMd,
+        isOverMd,
+        isUnderMd,
+        isOverXl,
+        isUnderXl,
+      }}
     >
       {props.children}
     </MQContext.Provider>

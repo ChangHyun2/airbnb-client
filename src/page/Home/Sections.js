@@ -1,9 +1,11 @@
-import { useRef } from 'react';
-import { css } from '@emotion/react';
+import { useEffect, useState } from 'react';
 import styled from '@emotion/styled';
-import Section from '@UI/Section';
-import Button, { GhostButton, PillButton } from '@UI/Button';
-import { useDetectSticked } from '@hooks';
+import Show from '@component/Show';
+import BannerSection from './sections/BannerSection';
+import LocationSection from './sections/LocationSection';
+import CommonSection from './sections/CommonSection';
+import { getHomeData } from '@data/home';
+import { TripleDotLoading } from '@UI/Loading';
 import s from 'S';
 
 const StyledSections = styled.div`
@@ -11,168 +13,83 @@ const StyledSections = styled.div`
   ${s.absolute}
 `;
 
-const BannerSection = styled.div`
-  ${s.baseImageWrapper}
-  background-color: ${s.pallete.black}
-  ${s.mb4}
-
-  img{
-    position:relative;
-  }
+const HouseSection = styled(CommonSection)`
+  padding-top: 0px !important;
+`;
+const AdventureSection = styled(CommonSection)`
+  background-color: ${s.pallete.black};
+  color: ${s.pallete.white};
 
   ${s.xsOnly(`
     img{
-      border-top-left-radius: ${s.round24}px;
-      border-top-right-radius: ${s.round24}px;
+      width: 272px;
+      height: 272px;
     }
-  `)}
-
-  ${s.over.sm(`
-    height: 630px;
-
-    img{
-      object-fit:cover;
-      object-position: 50% 100%;
-    }
-  `)}
-
-  ${s.over.xl(`
-    img{
-      object-fit: fill;
-    }
-  `)}
+  `)};
 `;
-
-const BannerContent = styled(Section)`
-  display:block;
-  ${s.absolute}
-  top: 90px;
-
-  p {
-    ${s.mb2};
-    ${s.h32}
-    ${s.bold}
-    color : ${s.pallete.white}
-  }
-  
-
-  ${s.over.md(`
-    top: 340px;
-
-    p{
-      ${s.h42}
+const HostSection = styled(CommonSection)`
+  ${s.xsOnly(`
+    img{
+      height: auto;
     }
   `)}
 `;
 
 export default function Sections() {
+  const [data, setData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setIsLoading(true);
+    getHomeData()
+      .then((data) => {
+        setData(data);
+      })
+      .catch((e) => {
+        setError(e);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, [getHomeData]);
+
   return (
     <StyledSections>
-      <BannerSection>
-        <picture>
-          <source
-            srcSet="https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1440 1x, https://a0.muscache.com/im/pictures/cf39f4c4-e860-43d4-85be-deddd7b2da90.jpg?im_w=1920 2x"
-            media="(min-width: 800px)"
+      <BannerSection />
+      {isLoading ? (
+        <s.RowCenter>
+          <TripleDotLoading />
+        </s.RowCenter>
+      ) : data ? (
+        <>
+          <LocationSection cardsData={data.location} />
+          <Show.underXl>
+            <HouseSection
+              title="어디에서나, 여행은 살아보는 거야!"
+              cardsData={data.house.slice(0, -1)}
+            />
+          </Show.underXl>
+          <Show.overXl>
+            <HouseSection
+              title="어디에서나, 여행은 살아보는 거야!"
+              columnCount={4}
+              cardsData={data.house}
+            />
+          </Show.overXl>
+          <AdventureSection
+            title="세상을 만나는 특별한 방법"
+            content="현지 전문가와 함께하는 독특한 액티비티를 직접 체험하거나 온라인으로 만나보세요."
+            cardsData={data.adventure}
           />
-          <img src="https://a0.muscache.com/im/pictures/c8dd7889-d579-49c7-9650-24ff71a82190.jpg?im_q=highq&im_w=720" />
-        </picture>
-        <BannerContent>
-          <p>
-            이제, 여행은
-            <br /> 가까운 곳에서
-          </p>
-          <Button theme="white" effect="scaleDown" sm>
-            근처의 숙소 둘러보기
-          </Button>
-        </BannerContent>
-      </BannerSection>
-      <Section>{'locations'}</Section>
-      <Section>{'어디에서나, 여행은 살아보는 거야!'}</Section>
-      <Section>{'세상을 만나는 특별한 방법'}</Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
-      <Section>
-        {'수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요.'}
-      </Section>
+          <HostSection
+            title="수백만 명에 이르는 에어비앤비 호스트 커뮤니티의 일원이 되어보세요."
+            cardsData={data.host}
+          />
+        </>
+      ) : error ? (
+        'error!'
+      ) : null}
     </StyledSections>
   );
 }

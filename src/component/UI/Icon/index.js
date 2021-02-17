@@ -53,6 +53,8 @@ export const settingIcon = createIcon(path.setting);
 export const arrowLeftIcon = createIcon(path.arrowLeft, true);
 export const closeIcon = createIcon(path.close, true);
 export const alertIcon = createIcon(path.alert, true);
+export const globeIcon = createIcon(path.globe, true);
+export const hamburgerIcon = createIcon(path.hamburger, true);
 
 const Icons = {
   heart: heartIcon,
@@ -73,6 +75,8 @@ const Icons = {
   setting: settingIcon,
   arrowLeft: arrowLeftIcon,
   alert: alertIcon,
+  globe: globeIcon,
+  hamburger: hamburgerIcon,
 };
 
 export default Icons;

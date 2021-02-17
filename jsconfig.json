@@ -16,7 +16,8 @@
       "@UI/*": ["component/UI/*"],
       "@context/*": ["context/*"],
       "@api/*": ["api/*"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@data/*": ["data/*"]
     }
   }
 }

@@ -8,15 +8,15 @@ const StyledContainer = styled.div`
   margin: 0 auto;
 `;
 
-const pad = [s.padXs, s.padSm, s.padMd, s.padLg];
+const pad = [s.padXs, s.padMd, s.padLg];
 
 const Container = forwardRef(
-  ({ align = 'flex', xs, sm, md, lg, children, ...otherProps }, ref) => {
+  ({ align, xs, md, lg, children, ...otherProps }, ref) => {
     let dynamicStyle = [];
 
-    dynamicStyle.push(s[align]);
+    align && dynamicStyle.push(s[align]);
 
-    Object.entries({ xs, sm, md, lg }).forEach(
+    Object.entries({ xs, md, lg }).forEach(
       ([bp, isBp], i) =>
         isBp && dynamicStyle.push(`${s.over[bp](`padding: 0 ${pad[i]}`)}`)
     );
