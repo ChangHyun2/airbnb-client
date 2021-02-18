@@ -48,7 +48,7 @@ const BannerContent = styled(Section)`
   }
   
 
-  ${s.over.md(`
+  ${s.over.sm(`
     top: 340px;
 
     p{

@@ -20,7 +20,7 @@ export const GhostButton = React.forwardRef(
     },
     ref
   ) => {
-    const Component = href ? 'a' : 'button';
+    const Tag = href ? 'a' : 'button';
     const dynamicStyles = [href ? linkStaticStyle : buttonStaticStyle];
 
     if (underline) {
@@ -40,7 +40,7 @@ export const GhostButton = React.forwardRef(
     }
 
     return (
-      <Component
+      <Tag
         href={href}
         target={target}
         css={css`
@@ -50,7 +50,7 @@ export const GhostButton = React.forwardRef(
         {...otherProps}
       >
         {children}
-      </Component>
+      </Tag>
     );
   }
 );

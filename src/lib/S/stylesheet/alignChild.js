@@ -16,6 +16,11 @@ export const rowSpaceBetween = `
     justify-content:space-between;
 `;
 
+export const rowEnd = `
+    ${row}
+    justify-content: flex-end;
+`;
+
 export const col = `
     ${row}
     flex-direction:column;

@@ -39,7 +39,7 @@ export const searchIcon = createIcon(path.search);
 export const messageIcon = createIcon(path.message);
 export const profileIcon = createIcon(path.profile);
 export const loginIcon = createIcon(path.login);
-export const airbnbIcon = createIcon(path.airbnb);
+export const AirbnbIcon = createIcon(path.airbnb);
 export const googleIcon = createIcon(path.google);
 export const facebookIcon = createIcon(path.facebook);
 export const houseIcon = createIcon(path.house);
@@ -52,18 +52,18 @@ export const giftBoxIcon = createIcon(path.giftBox);
 export const settingIcon = createIcon(path.setting);
 export const arrowLeftIcon = createIcon(path.arrowLeft, true);
 export const closeIcon = createIcon(path.close, true);
-export const alertIcon = createIcon(path.alert, true);
-export const globeIcon = createIcon(path.globe, true);
-export const hamburgerIcon = createIcon(path.hamburger, true);
+export const AlertIcon = createIcon(path.alert, true);
+export const GlobeIcon = createIcon(path.globe, true);
+export const HamburgerIcon = createIcon(path.hamburger, true);
 
 const Icons = {
   heart: heartIcon,
   message: messageIcon,
-  airbnb: airbnbIcon,
+  Airbnb: AirbnbIcon,
   profile: profileIcon,
   search: searchIcon,
   login: loginIcon,
-  airbnb: airbnbIcon,
+  Airbnb: AirbnbIcon,
   google: googleIcon,
   close: closeIcon,
   facebook: facebookIcon,
@@ -74,9 +74,9 @@ const Icons = {
   giftBox: giftBoxIcon,
   setting: settingIcon,
   arrowLeft: arrowLeftIcon,
-  alert: alertIcon,
-  globe: globeIcon,
-  hamburger: hamburgerIcon,
+  Alert: AlertIcon,
+  Globe: GlobeIcon,
+  Hamburger: HamburgerIcon,
 };
 
 export default Icons;

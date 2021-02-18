@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Show from '@component/Show';
 import Notice from './Home/Notice';
 import XsOnlySearchBar from './Home/XsOnlySearchBar';
-import OverMdNavBar from './Home/OverMdNavBar';
+import OverSmHeader from './Home/OverSmHeader';
 import Sections from './Home/Sections';
 import s from 'S';
 
@@ -19,9 +19,9 @@ export default function home() {
         <Show.onlyXs>
           <XsOnlySearchBar />
         </Show.onlyXs>
-        <Show.overMd>
-          <OverMdNavBar />
-        </Show.overMd>
+        <Show.overSm>
+          <OverSmHeader />
+        </Show.overSm>
         <Sections />
       </s.Relative>
     </StyledHome>

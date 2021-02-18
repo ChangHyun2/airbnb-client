@@ -4,6 +4,7 @@ import {
   row,
   rowCenter,
   rowSpaceBetween,
+  rowEnd,
   col,
   colCenter,
   colSpaceBetween,
@@ -19,6 +20,9 @@ export const Row = styled.div`
 `;
 export const RowCenter = styled.div`
   ${rowCenter}
+`;
+export const RowEnd = styled.div`
+  ${rowEnd}
 `;
 
 export const RowSpaceBetween = styled.div`
