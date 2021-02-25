@@ -54,11 +54,11 @@ export const PillButton = React.forwardRef(
 
     return (
       <BaseButton
+        {...otherProps}
         ref={ref}
         css={css`
           ${dynamicStyles.join('')}
         `}
-        {...otherProps}
         size={size}
       >
         {children}

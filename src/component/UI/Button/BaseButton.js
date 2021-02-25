@@ -77,7 +77,7 @@ export const BaseButton = React.forwardRef(function button(
     target = '_blank',
     isActive = false,
     LoadingComponent,
-    theme = 'primary',
+    variant = 'primary',
     size = 'sm',
     effect,
     IconComponent = null,
@@ -94,15 +94,15 @@ export const BaseButton = React.forwardRef(function button(
     `);
   }
 
-  if (theme) {
-    const { bg, border, color } = themes[theme];
+  if (variant) {
+    const { bg, border, color } = themes[variant];
     dynamicStyles.push(`
       background-color: ${bg};
       border: 1px solid ${border};
       color: ${color};
     `);
 
-    switch (theme) {
+    switch (variant) {
       case 'inverted':
         dynamicStyles.push(`
           &:not(:disabled):hover{
@@ -137,10 +137,10 @@ export const BaseButton = React.forwardRef(function button(
     switch (effect) {
       case 'scaleDown':
         dynamicStyles.push(`
-          &:active{
-            transition: transform 0.3s;
-            transform: scale(0.90);  
-          }
+        &:active{
+          transition: transform 0.3s;
+          transform: scale(0.90);  
+        }
         `);
     }
   }
@@ -156,17 +156,14 @@ export const BaseButton = React.forwardRef(function button(
 
   return (
     <Component
+      {...otherProps}
       ref={ref}
-      theme={theme}
       disabled={disabled}
       href={href}
-      size={size}
-      effect={effect}
       target={target}
       css={css`
         ${dynamicStyles.join('')}
       `}
-      {...otherProps}
     >
       {LoadingComponent ? (
         isActive ? (

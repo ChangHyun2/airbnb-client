@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { useLocation } from 'react-router-dom';
 import { GhostButton } from '@UI/Button';
 import s from 'S';
 
@@ -6,12 +7,15 @@ const StyledNotice = styled.div`
   ${s.rowCenter}
   ${s.textCenter}
   ${s.fluid};
+  background-color: ${s.pallete.black}
   padding: 20px;
   ${s.h14};
   color: ${s.pallete.grey0};
 `;
 
 export default function Notice() {
+  const locatoin = useLocation();
+  console.log(location);
   return (
     <StyledNotice>
       <GhostButton

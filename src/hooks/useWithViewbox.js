@@ -3,7 +3,7 @@ import { useLayoutEffect } from 'react';
 // useWIthViewbox
 // https://www.robinwieruch.de/react-svg-icon-components
 
-export const useWithViewbox = (ref) => {
+const useWithViewbox = (ref) => {
   useLayoutEffect(() => {
     if (
       ref.current !== null &&
@@ -26,3 +26,5 @@ export const useWithViewbox = (ref) => {
     }
   });
 };
+
+export default useWithViewbox;

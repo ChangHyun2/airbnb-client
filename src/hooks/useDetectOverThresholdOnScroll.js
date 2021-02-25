@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 
-export const useDetectOverThresholdOnScroll = (threshold) => {
+const useDetectOverThresholdOnScroll = (threshold) => {
   const [overThreshold, setOverThreshold] = useState(false);
 
   const handleScroll = useCallback(() => {
@@ -13,11 +13,10 @@ export const useDetectOverThresholdOnScroll = (threshold) => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [threshold]);
 
   return overThreshold;
 };
+
+export default useDetectOverThresholdOnScroll;

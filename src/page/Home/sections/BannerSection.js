@@ -71,7 +71,7 @@ export default function BannerSection() {
           이제, 여행은
           <br /> 가까운 곳에서
         </p>
-        <Button size="sm" theme="white" effect="scaleDown">
+        <Button size="sm" variant="white" effect="scaleDown">
           근처의 숙소 둘러보기
         </Button>
       </BannerContent>

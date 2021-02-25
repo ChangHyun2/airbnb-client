@@ -7,7 +7,7 @@ import { searchIcon } from '@UI/Icon';
 import s from 'S';
 
 const StyledSearchBar = styled(Section)`
-  ${s.relative}
+  ${s.absolute}
   z-index: 1;
   width: 100%;
 
@@ -47,7 +47,7 @@ export default function XsOnlySearchBar() {
 
   return (
     <StyledSearchBar ref={ref} sticked={sticked}>
-      <PillButton size="md" theme="white" IconComponent={SearchIcon}>
+      <PillButton size="md" variant="white" IconComponent={SearchIcon}>
         어디로 여행가세요?
       </PillButton>
     </StyledSearchBar>

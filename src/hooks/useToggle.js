@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useToggle = (initialOn = false) => {
+const useToggle = (initialOn = false) => {
   const [onState, setOnState] = React.useState(initialOn);
 
   const setOn = () => setOnState(true);
@@ -14,3 +14,5 @@ export const useToggle = (initialOn = false) => {
     setOff,
   };
 };
+
+export default useToggle;

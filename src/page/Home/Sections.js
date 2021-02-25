@@ -10,7 +10,7 @@ import s from 'S';
 
 const StyledSections = styled.div`
   ${s.fluid}
-  ${s.absolute}
+  background-color: ${s.pallete.white}
 `;
 
 const HouseSection = styled(CommonSection)`
@@ -58,7 +58,7 @@ export default function Sections() {
     <StyledSections>
       <BannerSection />
       {isLoading ? (
-        <s.RowCenter>
+        <s.RowCenter style={{ marginTop: -32 }}>
           <TripleDotLoading />
         </s.RowCenter>
       ) : data ? (

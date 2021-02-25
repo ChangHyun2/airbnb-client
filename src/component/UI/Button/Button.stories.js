@@ -43,7 +43,7 @@ const argTypes = {
       options: [null].concat(Object.keys(LoadingComponentMap)),
     },
   },
-  theme: {
+  variant: {
     control: {
       type: 'select',
       options: [

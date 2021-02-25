@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-export const useMQ = (query) => {
+const useMQ = (query) => {
   const mqlRef = useRef(window.matchMedia(query));
   const [state, setState] = useState(mqlRef.current.matches);
 
@@ -16,3 +16,5 @@ export const useMQ = (query) => {
 
   return state;
 };
+
+export default useMQ;

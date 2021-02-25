@@ -5,9 +5,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 import { AuthContextProvider } from '@context/global/AuthContext';
 import { MQContextProvider } from '@context/global/MQContext';
-import Routes from '@routes/index';
-
-import { pallete } from 'S';
+import Layout from '@page/layout';
 
 const queryClient = new QueryClient();
 
@@ -17,7 +15,7 @@ export default function App() {
       <MQContextProvider>
         <QueryClientProvider client={queryClient}>
           <Router>
-            <Routes />
+            <Layout />
           </Router>
           <ReactQueryDevtools initialIsOpen={false} />
         </QueryClientProvider>

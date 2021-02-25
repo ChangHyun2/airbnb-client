@@ -54,11 +54,11 @@ const Button = React.forwardRef(
 
     return (
       <BaseButton
+        {...otherProps}
         ref={ref}
         css={css`
           ${dynamicStyles.join('')}
         `}
-        {...otherProps}
         effect={effect}
         size={size}
       >

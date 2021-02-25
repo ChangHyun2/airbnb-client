@@ -1,10 +1,13 @@
 import { zIndex as zIndexObj } from '@variable';
 
-export const zIndex = Object.entries(zIndexObj).reduce((zIndex, component) => {
-  const [name, size] = component;
+const zIndex = {
+  backdrop: `z-index: ${zIndexObj.backdrop};`,
+  dropdown: `z-index: ${zIndexObj.dropdown};`,
+  fixed: `z-index: ${zIndexObj.fixed};`,
+  modal: `z-index: ${zIndexObj.modal};`,
+  popover: `z-index: ${zIndexObj.popover};`,
+  sticky: `z-index: ${zIndexObj.sticky};`,
+  tooltip: `z-index: ${zIndexObj.tooltip};`,
+};
 
-  return {
-    ...zIndex,
-    [name]: `z-index: ${size};`,
-  };
-});
+export default zIndex;

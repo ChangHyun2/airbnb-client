@@ -1,7 +1,7 @@
 import { useToggle } from '@hooks';
 import { useEffect } from 'react';
 
-export const useDarkMode = (initialOn) => {
+const useDarkMode = (initialOn) => {
   const darkMode = useToggle(false);
 
   useEffect(() => {
@@ -16,3 +16,5 @@ export const useDarkMode = (initialOn) => {
 
   return darkMode;
 };
+
+export default useDarkMode;
