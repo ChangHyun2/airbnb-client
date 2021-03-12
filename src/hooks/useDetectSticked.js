@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
 import useDetectOverThresholdOnScroll from './useDetectOverThresholdOnScroll';
 
-const getDistanceToViewport = (ref, offset) =>
+const getDistanceToViewport = (ref, topOffset) =>
   ref.current &&
-  ref.current.getBoundingClientRect().top + window.scrollY + offset;
+  ref.current.getBoundingClientRect().top + window.scrollY + topOffset;
 
-// detail!
-const useDetectSticked = (ref, offsetStickyTop = 0) => {
+const useDetectSticked = (ref, stickyTop = 0) => {
   const [refOffsetTop, setRefOffsetTop] = useState(0);
 
   useEffect(() => {
-    var distanceToViewport = getDistanceToViewport(ref, offsetStickyTop);
+    var distanceToViewport = getDistanceToViewport(ref, stickyTop);
 
     setRefOffsetTop(distanceToViewport);
   }, []);

@@ -22,8 +22,9 @@ export const rowEnd = `
 `;
 
 export const col = `
-    ${row}
+    ${flex}
     flex-direction:column;
+    flex-wrap:nowrap;
 `;
 export const colCenter = `
     ${col}
@@ -38,9 +39,9 @@ export const relative = `
     position:relative;
 `;
 
-export const grid = ({ row, col, gap }) => `
-    --column-count: ${col};
-    grid-template-rows: repeat(${row}, auto);
-    grid-gap: ${gap};
-    grid-auto-flow: column;
-`;
+// export const grid = ({ row, col, gap }) => `
+//     --column-count: ${col};
+//     grid-template-rows: repeat(${row}, auto);
+//     grid-gap: ${gap};
+//     grid-auto-flow: column;
+// `;

@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 
-const useShowUnderThresholdOrOnScrollUp = (showThreshold) => {
+const useShowOverThresholdOrOnScrollUp = (showThreshold) => {
   const [show, setShow] = useState(true);
   const [prevScroll, setPrevScroll] = useState(0);
 
@@ -28,4 +28,4 @@ const useShowUnderThresholdOrOnScrollUp = (showThreshold) => {
   return show;
 };
 
-export default useShowUnderThresholdOrOnScrollUp;
+export default useShowOverThresholdOrOnScrollUp;

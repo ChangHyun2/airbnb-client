@@ -1,5 +1,5 @@
-export const outlineEffect = `
-&::before {
+export const outline = `
+  &::before {
     content: '';
     position: absolute;
     top: 50%;

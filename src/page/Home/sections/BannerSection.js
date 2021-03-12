@@ -14,8 +14,8 @@ const StyledBannerSection = styled.div`
 
   ${s.xsOnly(`
     img{
-      border-top-left-radius: ${s.round24}px;
-      border-top-right-radius: ${s.round24}px;
+      border-top-left-radius: ${s.round.md};
+      border-top-right-radius: ${s.round.md};
     }
   `)}
 

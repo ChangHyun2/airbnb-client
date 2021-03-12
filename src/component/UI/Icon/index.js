@@ -2,16 +2,16 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import { useWithViewbox } from '@hooks';
-import { rowCenter } from 'S';
+import { alignChild, pallete } from 'S';
 import path from './path';
 
 const Wrapper = styled.div`
-  ${rowCenter}
+  ${alignChild.rowCenter}
 `;
 
 const strokeStyle = css`
   stroke-width: 2px;
-  stroke: black;
+  stroke: ${pallete.black};
 `;
 
 const createIcon = (svg, isStrokeEmpty) =>

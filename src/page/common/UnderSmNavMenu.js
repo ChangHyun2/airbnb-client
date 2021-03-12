@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { useAuthContext } from '@context/global/AuthContext';
 import { NavItem, items, Icons } from './underSmNavMenu/index';
-import { useShowUnderThresholdOrOnScrollUp } from '@hooks';
+import { useShowOverThresholdOrOnScrollUp } from '@hooks';
 import Show from '@component/Show';
 import s from 'S';
 
@@ -38,7 +38,7 @@ const Text = styled.span`
 
 // https://github.com/facebook/react/issues/14066
 function UnderSmNavMenu({ showThreshold }) {
-  const show = useShowUnderThresholdOrOnScrollUp(showThreshold);
+  const show = useShowOverThresholdOrOnScrollUp(showThreshold);
   const { state: isAuth } = useAuthContext();
 
   return (

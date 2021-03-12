@@ -1,6 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import BaseButton from './BaseButton';
+import { values } from 'S';
+
+const { ROUND } = values;
 
 const padding = {
   xs: '2px 4px',
@@ -10,10 +13,10 @@ const padding = {
 };
 
 const borderRadius = {
-  xs: '4px',
-  sm: '8px',
-  md: '8px',
-  lg: '8px',
+  xs: ROUND.xs + 'px',
+  sm: ROUND.sm + 'px',
+  md: ROUND.sm + 'px',
+  lg: ROUND.sm + 'px',
 };
 
 const Button = React.forwardRef(
@@ -22,28 +25,6 @@ const Button = React.forwardRef(
 
     if (effect) {
       switch (effect) {
-        case 'outline':
-          dynamicStyles.push(`  
-              position:relative;
-      
-              &::before {
-                content: '';
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                width: calc(100% + 10px);
-                height: calc(100% + 10px);
-                border: 1px solid transparent;
-                border-radius: 13px;
-                transition: border-color 0.7s;
-              }
-          
-              &:focus::before {
-                border-color: #555;
-              }
-            `);
-          break;
       }
     }
 

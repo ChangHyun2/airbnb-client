@@ -1,4 +1,5 @@
 import { useMQContext } from '@context/global';
+import s from 'S';
 
 const Show = {
   onlyXs: ({ children }) => (useMQContext()['isOnlyXs'] ? children : null),

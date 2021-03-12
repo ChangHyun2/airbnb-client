@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import s from 'S';
 import { slideInUp, slideOutDown } from '@UI/keyframes';
+import { Transition } from 'react-transition-group';
 
-const color = keyframes`
-  from {
-    background-color: red;
-  }
-  to{
-    background-color: blue;
-  }
-`;
+const duration = 300;
+
+const defaultStyle = {
+  transition: `opacity ${duration}ms ease-in-out`,
+  opacity: 0,
+};
+
+const transitionStyles = {
+  entering: { opacity: 1 },
+  entered: { opacity: 1 },
+  exiting: { opacity: 0 },
+  exited: { opacity: 0 },
+};
+
+const Fade = ({ in: inProp }) => (
+  <Transition in={inProp} timeout={duration}>
+    {(state) => (
+      <div
+        style={{
+          ...defaultStyle,
+          ...transitionStyles[state],
+        }}
+      >
+        I'm a fade Transition!
+      </div>
+    )}
+  </Transition>
+);
 
 const StyledBackdrop = styled.div`
   position: fixed;
@@ -19,55 +40,42 @@ const StyledBackdrop = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.3);
   transition: opacity 0.5s;
-  opacity: 0;
-  animation: 1s ${({ animations }) => animations};
-  ${({ ds }) => ds.join('')}
   ${s.zIndex.backdrop};
+  ${defaultStyle}
 `;
 
-// const slideInUp = keyframes`
-//   from {
-//     transform: translate3d(0, -100%, 0);
-//   }
+export default function Backdrop({ children, onClose, ...otherProps }) {
+  const [inProp, setInProp] = React.useState(false);
+  const ref = React.useRef(null);
 
-//   to {
-//     transform: translate3d(0, 0, 0);
-//   }
-// `;
-
-export default function Backdrop({ children, ...otherProps }) {
-  const [rendered, setRendered] = React.useState(false);
-  const [ds, setDs] = React.useState([]);
-  const [animations, setAnimations] = React.useState([]);
-
-  React.useEffect(() => {
-    setRendered(true);
-
-    document.body.style.overflow = 'hidden';
-    return () => (document.body.style.overflow = 'unset');
+  useEffect(() => {
+    setInProp(true);
+    return () => setInProp(false);
   }, []);
 
-  React.useEffect(() => {
-    if (rendered) {
-      setDs((prev) => [...prev, `opacity: 0.4;`]);
-      setAnimations((prev) => [...prev, slideInUp]);
-    }
-  }, [rendered]);
+  const handleOnClick = (e) => {
+    if (e.target !== ref.current) return;
 
-  React.useEffect(() => {
-    return () => setAnimations((prev) => [...prev, slideOutDown]);
-  }, []);
+    onClose(e);
+  };
 
   return (
-    <StyledBackdrop
-      rendered={rendered}
-      ds={ds}
-      animations={animations}
-      {...otherProps}
-    >
-      {children}
-    </StyledBackdrop>
+    <Transition in={inProp} timeout={duration}>
+      {(state) => (
+        <StyledBackdrop
+          ref={ref}
+          style={{
+            ...defaultStyle,
+            ...transitionStyles[state],
+          }}
+          onClick={handleOnClick}
+          {...otherProps}
+        >
+          {children}
+        </StyledBackdrop>
+      )}
+    </Transition>
   );
 }

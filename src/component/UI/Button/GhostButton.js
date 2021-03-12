@@ -1,10 +1,11 @@
 import React from 'react';
-import s from 'S';
+import { NavLink } from 'react-router-dom';
+import { baseComponent } from 'S';
 import { css } from '@emotion/react';
 
-const linkStaticStyle = s.baseLink;
+const linkStaticStyle = baseComponent.baseLink;
 const buttonStaticStyle = `
-  ${s.baseButton}
+  ${baseComponent.baseButton}
   border:none;
 `;
 
@@ -13,15 +14,16 @@ export const GhostButton = React.forwardRef(
     {
       children,
       href,
-      target = '_blank',
+      to,
+      target,
       underline,
       effect = 'underline',
       ...otherProps
     },
     ref
   ) => {
-    const Tag = href ? 'a' : 'button';
-    const dynamicStyles = [href ? linkStaticStyle : buttonStaticStyle];
+    const Tag = href ? 'a' : to ? NavLink : 'button';
+    const dynamicStyles = [href || to ? linkStaticStyle : buttonStaticStyle];
 
     if (underline) {
       dynamicStyles.push('text-decoration: underline;');
@@ -41,12 +43,13 @@ export const GhostButton = React.forwardRef(
 
     return (
       <Tag
+        ref={ref}
         href={href}
+        to={to}
         target={target}
         css={css`
           ${dynamicStyles.join('')}
         `}
-        ref={ref}
         {...otherProps}
       >
         {children}

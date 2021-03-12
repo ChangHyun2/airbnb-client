@@ -1,8 +1,10 @@
-import { padXs, padMd, padLg } from './values';
-import { over } from './mediaQuery';
+import { PAD, SPACING } from '../values';
+import { over, xsOnly } from './mediaQuery';
 import * as alignChild from './alignChild';
 import * as alignSelf from './alignSelf';
-console.log(alignChild);
+import size from './size';
+import pallete from './pallete';
+import round from './round';
 
 export const baseButton = `
   display: inline-block;
@@ -18,50 +20,68 @@ export const baseButton = `
 `;
 
 export const baseLink = `
+  display:inline-block;
   text-decoration:none;
   color:inherit;
+  :visited,:link{
+    color:inherit;
+  }
 `;
 
 export const baseImageWrapper = `
   img{
     display:block;
-    width: 100%;
-    height: 100%;
+    ${size('100%', '100%')}
   }
 `;
 
-const pad = [padXs, padMd, padLg];
+// baseContainer
 export const baseContainer = (options = {}) => {
-  const { align, xs = true, md = true, lg = true } = options;
+  const { align, xs = true, sm = true, md = true, lg = true } = options;
+  const dynamicStyles = [];
+
+  if (align) {
+    dynamicStyles.push(alignChild[align]);
+  }
+
+  Object.entries({ xs, sm, md, lg }).forEach(
+    ([bp, isBp]) =>
+      isBp &&
+      dynamicStyles.push(
+        over[bp](`
+            padding-right: ${PAD[bp]}px;
+            padding-left: ${PAD[bp]}px;
+          `)
+      )
+  );
 
   return `
-    ${align ? alignChild[align] : ''}
     width: 100%;
-    margin: 0 auto;
-    ${Object.entries({ xs, md, lg })
-      .map(([bp, isBp], i) =>
-        isBp
-          ? over[bp](`
-            padding-right: ${pad[i]};
-            padding-left: ${pad[i]};
-          `)
-          : ''
-      )
-      .join('')}
+    margin-right: auto;
+    margin-left: auto;
+    ${dynamicStyles.join('')}
   `;
 };
 
-export const baseSection = (mb = 'mb4') => `
+export const baseCard = (size = 'sm') => `
+  border-radius: ${round[size]};
+  background-color: ${pallete.white};
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+`;
+// box-shadow에 rgba를 적용할 경우 오버랩됐을 떄 색상이 눈에 띄지 않는다.
+
+// baseContainer => baseSection
+export const baseSection = (mb = 'mb3') => `
   ${baseContainer()}
-  ${mb ? alignSelf[mb] : ''}  
+  ${alignSelf[mb]}  
 `;
 
 export const baseSnapScroller = ({
-  padding = padXs,
-  gap = '10px',
+  padding = PAD.xs + 'px',
   offset = '100px',
   row = 1,
   col,
+  gap = SPACING[20] + 'px',
 }) => {
   const styles = [
     `
@@ -70,7 +90,7 @@ export const baseSnapScroller = ({
       overflow-x: auto;
       scroll-behavior: smooth;
 
-      & > li {
+      & > * {
         scroll-snap-align: start;
       }
     `,

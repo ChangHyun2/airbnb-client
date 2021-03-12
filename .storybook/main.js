@@ -25,7 +25,7 @@ module.exports = {
           '@hooks': toPath('src/hooks/index.js'),
           '@context': toPath('src/context'),
           '@component': toPath('src/component'),
-          '@util': toPath('src/util'),
+          '@utils': toPath('src/utils/index.js'),
         },
       },
     };

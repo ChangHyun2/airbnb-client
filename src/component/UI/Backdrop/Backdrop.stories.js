@@ -1,5 +1,4 @@
 import React from 'react';
-import s from 'S';
 import { useToggle } from '@hooks';
 import Button from '@UI/Button';
 import BackdropComponent from './index';
@@ -17,7 +16,7 @@ export const Backdrop = (props) => {
     <>
       <p>This backdrop component is used with useToggle hook</p>
       {showBackdrop.on ? (
-        <BackdropComponent onClick={showBackdrop.setOff}>
+        <BackdropComponent onClose={showBackdrop.setOff}>
           {props.children}
         </BackdropComponent>
       ) : null}

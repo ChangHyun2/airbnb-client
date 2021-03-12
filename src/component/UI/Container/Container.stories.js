@@ -9,12 +9,12 @@ export default {
 };
 
 const Wrapper = styled.div`
-  font-size: 14px;
+  ${s.h14}
   p {
-    margin-bottom: 20px;
+    ${s.mb2}
   }
   button {
-    margin-bottom: 30px;
+    ${s.mb3}
   }
 `;
 
@@ -37,17 +37,17 @@ const Grid3 = styled(s.Grid3)`
 
 const StyledContainer = styled(ContainerComponent)`
   box-shadow: 0 0 1px #777;
-  margin-bottom: 50px;
+  ${s.mb3}
 `;
 
 // Container
-export const Container = (props) => (
+export const Container = ({ align, ...otherProps }) => (
   <Wrapper>
     <p>change xs, sm, md, lg props and resize your window</p>
     <p>padding ~xs: 24px , ~sm: 40px , ~md: 60px , ~lg: 80px</p>
     <>
       <p>Custom Container</p>
-      <StyledContainer align={props.align} {...props} style={{ height: 70 }}>
+      <StyledContainer align={align} style={{ height: 70 }} {...otherProps}>
         <Grid1>Grid1</Grid1>
         <Grid1>Grid1</Grid1>
         <Grid3>Grid3</Grid3>
@@ -56,7 +56,7 @@ export const Container = (props) => (
     {['flex'].map((align) => (
       <>
         <p>{`align : ${align}`}</p>
-        <StyledContainer align={align} {...props} style={{ height: 30 }}>
+        <StyledContainer align={align} style={{ height: 30 }} {...otherProps}>
           <Grid>Grid</Grid>
           <Grid1>Grid1</Grid1>
           <Grid3>Grid3</Grid3>
@@ -66,7 +66,7 @@ export const Container = (props) => (
     {['flex', 'row', 'rowCenter', 'rowSpaceBetween'].map((align) => (
       <>
         <p>{`align : ${align}`}</p>
-        <StyledContainer align={align} {...props} style={{ height: 30 }}>
+        <StyledContainer align={align} style={{ height: 30 }} {...otherProps}>
           <Grid1>Grid1</Grid1>
           <Grid1>Grid1</Grid1>
           <Grid3>Grid3</Grid3>
@@ -76,7 +76,7 @@ export const Container = (props) => (
     {['col', 'colCenter', 'colSpaceBetween'].map((align) => (
       <>
         <p>{`align : ${align}`}</p>
-        <StyledContainer align={align} {...props} style={{ height: 80 }}>
+        <StyledContainer align={align} style={{ height: 80 }} {...otherProps}>
           <Grid3>Grid3</Grid3>
           <Grid3>Grid3</Grid3>
           <Grid3>Grid3</Grid3>

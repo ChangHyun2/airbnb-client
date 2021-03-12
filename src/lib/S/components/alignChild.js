@@ -9,6 +9,7 @@ import {
   colCenter,
   colSpaceBetween,
   relative,
+  absolute,
 } from '../stylesheet/alignChild';
 
 export const Flex = styled.div`

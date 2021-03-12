@@ -1,6 +1,6 @@
-import { pallete as _pallete } from '@variable';
+import { PALLETE } from '../values';
 
-export const pallete = { ..._pallete };
+export const pallete = { ...PALLETE };
 
 Object.keys(pallete).forEach((key) => (pallete[key] += ';'));
 

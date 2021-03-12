@@ -11,7 +11,7 @@ const aliases = {
   '@component': 'component',
   '@context': 'context',
   '@hooks': 'hooks/index.js',
-  '@util': 'util/index.js',
+  '@utils': 'utils/index.js',
   '@variable': 'variable/index.js',
   '@api': 'api',
   '@page': 'page',

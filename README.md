@@ -1,3 +1,4 @@
+
 ## 프로젝트 설정 순서
 
 - 전역 환경 세팅
@@ -145,9 +146,4 @@ https://babeljs.io/docs/en/babel-runtime
 **after commit : 웹팩 환경 설정 , 리엑트**
 storybook webpack 5 미지원
 - https://github.com/storybookjs/storybook/issues/13332
-- `npm i --save-dev html-webpack-plugin@next`
-
-
-**after commit : fix : 이모션 css prop **추가**
-babel-preset-env => nullish coalecing, optional chaning 지원
-
+- `npm i --save-dev html-webpack-plugin@next`로 해결

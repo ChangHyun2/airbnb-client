@@ -3,7 +3,7 @@ import Section from '@UI/Section';
 import s from 'S';
 
 const CommonSection = styled.div`
-  padding: ${s.padXs} 0;
+  padding: ${s.pad.xs} 0;
 
   h2 {
     ${s.h22}
@@ -21,7 +21,7 @@ const CommonSection = styled.div`
   `)}
 
   ${s.over.md(`
-   padding: ${s.padSm} 0;
+   padding: ${s.pad.sm} 0;
 `)}
 `;
 
@@ -29,10 +29,10 @@ const SnapScroller = styled.ul`
   ${s.baseContainer}
 
   ${s.xsOnly(`
-      ${s.baseSnapScroller({ col: 3, offset: null })}
+      ${s.baseSnapScroller({ col: 3, offset: 0 })}
 
       & > li:last-child{
-        padding-right: ${s.padXs}
+        padding-right: ${s.pad.xs}
       }
     `)}
 
@@ -48,7 +48,7 @@ const Card = styled.li`
   ${s.baseImageWrapper}
 
   img {
-    border-radius: ${s.round8}px;
+    border-radius: ${s.round.sm};
     ${s.mb1};
   }
 
@@ -56,7 +56,7 @@ const Card = styled.li`
     img {
       width: 80vw;
       height: 80vw;
-      }
+    }
   `)}
 
   h3 {
@@ -80,7 +80,7 @@ export default function commonSection({
       </Section>
       <SnapScroller col={cardsData.length}>
         {cardsData.map(({ imgURL, title, content }) => (
-          <Card>
+          <Card key={title}>
             <img src={imgURL} />
             <h3>{title}</h3>
             {content ? <p>{content}</p> : null}

@@ -1,6 +1,7 @@
-import s from 'S';
+import { alignSelf } from 'S';
 import styled from '@emotion/styled';
 import section from '@UI/Section';
+import s from 'S';
 
 const SectionComponent = styled(section)`
   box-shadow: 0 0 1px #aaa;

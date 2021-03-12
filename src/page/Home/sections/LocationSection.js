@@ -11,7 +11,7 @@ const Card = styled.li`
   ${s.row}
 
   img {
-    border-radius: ${s.round12}px;
+    border-radius: ${s.round.sm};
     margin-right: 10px;
     width: 65px;
     height: 65px;
@@ -62,6 +62,7 @@ export default function LocationSection(props) {
       <SnapScroller>
         {props.cardsData.map(({ imgURL, title, content }, i) => (
           <Card
+            key={title}
             css={
               i > 5
                 ? css`

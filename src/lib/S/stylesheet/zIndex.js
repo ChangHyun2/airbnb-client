@@ -1,13 +1,13 @@
-import { zIndex as zIndexObj } from '@variable';
+import { ZINDEX } from '../values';
 
 const zIndex = {
-  backdrop: `z-index: ${zIndexObj.backdrop};`,
-  dropdown: `z-index: ${zIndexObj.dropdown};`,
-  fixed: `z-index: ${zIndexObj.fixed};`,
-  modal: `z-index: ${zIndexObj.modal};`,
-  popover: `z-index: ${zIndexObj.popover};`,
-  sticky: `z-index: ${zIndexObj.sticky};`,
-  tooltip: `z-index: ${zIndexObj.tooltip};`,
+  backdrop: `z-index: ${ZINDEX.backdrop};`,
+  dropdown: `z-index: ${ZINDEX.dropdown};`,
+  fixed: `z-index: ${ZINDEX.fixed};`,
+  modal: `z-index: ${ZINDEX.modal};`,
+  popover: `z-index: ${ZINDEX.popover};`,
+  sticky: `z-index: ${ZINDEX.sticky};`,
+  tooltip: `z-index: ${ZINDEX.tooltip};`,
 };
 
 export default zIndex;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import s from 'S';
+import { pallete, typo, baseComponent, RowCenter, effect } from 'S';
 
 const {
   white,
@@ -12,9 +12,10 @@ const {
   grey1,
   grey5,
   grey6,
-} = s.pallete;
+  whiteGrey0,
+} = pallete;
 
-const themes = {
+const variants = {
   black: {
     bg: black,
     border: black,
@@ -48,19 +49,24 @@ const themes = {
 };
 
 const fontSize = {
-  xs: '12px',
-  sm: '14px',
-  md: '15px',
-  lg: '16px',
+  xs: typo.h12,
+  sm: typo.h14,
+  md: typo.h16,
+  lg: typo.h18,
 };
+
+const ChildrenWrapper = styled(RowCenter)`
+  width: 100%;
+  height: 100%;
+`;
 
 const Text = styled.span`
   vertical-align: middle;
 `;
 
 const staticStyle = `
-  ${s.baseButton} 
-  ${s.bold}
+  ${baseComponent.baseButton} 
+  ${typo.bold}
   &:disabled {
     background-color: ${grey0};
     border: 1px solid ${grey0};
@@ -74,7 +80,7 @@ export const BaseButton = React.forwardRef(function button(
     disabled = false,
     children,
     href,
-    target = '_blank',
+    target,
     isActive = false,
     LoadingComponent,
     variant = 'primary',
@@ -86,16 +92,15 @@ export const BaseButton = React.forwardRef(function button(
   ref
 ) {
   const Component = href ? 'a' : 'button';
+
   const dynamicStyles = [staticStyle];
 
   if (size) {
-    dynamicStyles.push(`
-      font-size: ${fontSize[size]};
-    `);
+    dynamicStyles.push(fontSize[size]);
   }
 
   if (variant) {
-    const { bg, border, color } = themes[variant];
+    const { bg, border, color } = variants[variant];
     dynamicStyles.push(`
       background-color: ${bg};
       border: 1px solid ${border};
@@ -125,6 +130,14 @@ export const BaseButton = React.forwardRef(function button(
         `);
         break;
 
+      case 'white':
+        dynamicStyles.push(`
+          &:hover{
+            background-color: ${whiteGrey0};
+          }
+        `);
+        break;
+
       default:
         dynamicStyles.push(`
         &:not(:disabled):hover{
@@ -137,21 +150,45 @@ export const BaseButton = React.forwardRef(function button(
     switch (effect) {
       case 'scaleDown':
         dynamicStyles.push(`
-        &:active{
-          transition: transform 0.3s;
-          transform: scale(0.90);  
-        }
+          &:active{
+            transition: transform 0.3s;
+            transform: scale(0.90);  
+          }
         `);
+        break;
+
+      case 'outline':
+        dynamicStyles.push(`  
+            position:relative;
+    
+            &::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: calc(100% + 10px);
+              height: calc(100% + 10px);
+              border: 1px solid transparent;
+              border-radius: 13px;
+              transition: border-color 0.7s;
+            }
+        
+            &:focus::before {
+              border-color: #555;
+            }
+          `);
+        break;
     }
   }
 
   const childrenComponent = (
-    <s.RowCenter>
+    <ChildrenWrapper>
       {IconComponent ? (
         <IconComponent width={fontSize[size]} height={fontSize[size]} />
       ) : null}
       <Text>{children}</Text>
-    </s.RowCenter>
+    </ChildrenWrapper>
   );
 
   return (

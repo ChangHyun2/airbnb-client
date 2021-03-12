@@ -1,20 +1,20 @@
-import { breakpoint as bp } from '@variable';
+import { BREAKPOINT } from '../values';
 
-const breakpoint = Object.values(bp);
+const breakpoint = Object.values(BREAKPOINT);
 
 export const over = ['xs', 'sm', 'md', 'lg', 'xl'].reduce(
-  (over, bp, i) => ({
+  (over, BREAKPOINT, i) => ({
     ...over,
-    [bp]: (cssRules) =>
+    [BREAKPOINT]: (cssRules) =>
       `@media only screen and (min-width:${breakpoint[i]}px){${cssRules}}`,
   }),
   {}
 );
 
 export const under = ['sm', 'md', 'lg', 'xl'].reduce(
-  (under, bp, i) => ({
+  (under, BREAKPOINT, i) => ({
     ...under,
-    [bp]: (cssRules) =>
+    [BREAKPOINT]: (cssRules) =>
       `@media only screen and (max-width:${
         breakpoint[i + 1] - 1
       }px){${cssRules}}`,
@@ -26,19 +26,20 @@ export const xsOnly = (cssRules) =>
   `@media only screen and (max-width: ${breakpoint[1] - 1}px){${cssRules}}`;
 
 export const smTo = ['md', 'lg', 'xl'].reduce(
-  (smTo, bp, i) => ({
+  (smTo, BREAKPOINT, i) => ({
     ...smTo,
-    [bp]: (cssRules) =>
+    [BREAKPOINT]: (cssRules) =>
       `@media only screen and (min-width:${breakpoint[1]}px) and (max-width:${
         breakpoint[i + 1]
       }px){${cssRules}}`,
   }),
   {}
 );
+
 export const mdTo = ['lg', 'xl'].reduce(
-  (mdTo, bp, i) => ({
+  (mdTo, BREAKPOINT, i) => ({
     ...mdTo,
-    [bp]: (cssRules) =>
+    [BREAKPOINT]: (cssRules) =>
       `@media only screen and (min-width:${breakpoint[2]}) and (max-width:${
         breakpoint[i + 2]
       }px){${cssRules}}`,
