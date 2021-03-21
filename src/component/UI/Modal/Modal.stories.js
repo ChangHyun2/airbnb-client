@@ -20,7 +20,7 @@ export const Modal = (props) => {
   return (
     <>
       <ModalComponent show={showModal.on} onClose={showModal.setOff}>
-        <Content />
+        <Content>helllo</Content>
       </ModalComponent>
       <button onClick={showModal.toggle}>toggle modal</button>
     </>

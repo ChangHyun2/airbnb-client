@@ -1,8 +1,9 @@
 import { useRef, useEffect } from 'react';
 import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { useToggle } from '@hooks';
 import Button, { RoundButton, GhostButton } from '@UI/Button';
-import { closeIcon } from '@UI/Icon';
+import { CloseIcon } from '@UI/Icon';
 import s from 'S';
 import language from '@data/localSetting/language';
 import currency from '@data/localSetting/currency';
@@ -56,7 +57,6 @@ const Section = styled.ul`
     ${s.bold}
     ${s.mb2}
   }
-
 `;
 
 const StyledSectionItem = styled.li`
@@ -85,8 +85,9 @@ const StyledSectionItem = styled.li`
       width: 100%;
     }
 
-    div:last-of-type {
-      color: ${s.pallete.grey5};
+    :active,
+    :focus {
+      border: 1px solid ${s.pallete.black};
     }
   }
 `;
@@ -95,18 +96,26 @@ const SectionItem = ({ title, content }) => (
   <StyledSectionItem>
     <Button variant="white" size="md">
       <div>{title}</div>
-      <div>{content}</div>
+      <div
+        css={css`
+          color: ${s.pallete.grey5};
+        `}
+      >
+        {content}
+      </div>
     </Button>
   </StyledSectionItem>
 );
 
-const LocalSetting = ({ onClose }) => {
-  const showLanguage = useToggle(true);
+const LocalSetting = ({ onClose, type }) => {
+  const showLanguage = useToggle(
+    type === 'language' ? true : type === 'currency' ? false : true
+  );
   const tabRef = useRef();
 
   useEffect(() => {
-    tabRef.current.focus();
-  }, []);
+    !type && tabRef.current.focus();
+  }, [type]);
 
   return (
     <StyledLocalSetting>
@@ -115,15 +124,17 @@ const LocalSetting = ({ onClose }) => {
           onClick={onClose}
           variant="white"
           size="md"
-          IconComponent={closeIcon}
+          IconComponent={CloseIcon}
         />
       </div>
-      <Tabs>
-        <GhostButton ref={tabRef} onClick={showLanguage.setOn}>
-          언어와 지역
-        </GhostButton>
-        <GhostButton onClick={showLanguage.setOff}>통화</GhostButton>
-      </Tabs>
+      {!type && (
+        <Tabs>
+          <GhostButton ref={tabRef} onClick={showLanguage.setOn}>
+            언어와 지역
+          </GhostButton>
+          <GhostButton onClick={showLanguage.setOff}>통화</GhostButton>
+        </Tabs>
+      )}
       <Sections>
         {showLanguage.on
           ? [

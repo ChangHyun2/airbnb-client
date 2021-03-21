@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import XsOnlySearchBar from './Home/XsOnlySearchBar';
-import Show from '@component/Show';
-import Sections from './Home/Sections';
 import s from 'S';
+import XsOnlySearchBar from './Home/XsOnlySearchBar';
+import Sections from './Home/Sections';
+import Show from '@component/Show';
 
 const StyledHome = styled.div`
   ${s.relative}

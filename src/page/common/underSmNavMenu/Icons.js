@@ -1,23 +1,22 @@
 import styled from '@emotion/styled';
 import {
   AirbnbIcon,
-  loginIcon,
-  heartIcon,
-  messageIcon,
-  profileIcon,
-  searchIcon,
+  LoginIcon,
+  HeartIcon,
+  MessageIcon,
+  ProfileIcon,
+  SearchIcon,
 } from '@UI/Icon';
 
 const Icons = Object.entries({
   AirbnbIcon,
-  loginIcon,
-  heartIcon,
-  messageIcon,
-  profileIcon,
-  searchIcon,
+  LoginIcon,
+  HeartIcon,
+  MessageIcon,
+  ProfileIcon,
+  SearchIcon,
 }).reduce((icons, entry) => {
   const [iconName, icon] = entry;
-  console.log(iconName, icon);
 
   return {
     ...icons,

@@ -29,10 +29,12 @@ export const col = `
 export const colCenter = `
     ${col}
     justify-content:center;
+    align-items:center;
 `;
 export const colSpaceBetween = `
     ${col}
-    justify-content:space-between;
+    justify-content:center;
+    align-items:space-between;
 `;
 
 export const relative = `

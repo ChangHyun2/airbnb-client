@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import Section from '@UI/Section';
 import { PillButton } from '@UI/Button';
 import { useDetectSticked } from '@hooks';
-import { searchIcon } from '@UI/Icon';
+import { SearchIcon } from '@UI/Icon';
 import s from 'S';
 
 const StyledSearchBar = styled(Section)`
@@ -35,10 +35,12 @@ const StyledSearchBar = styled(Section)`
   `}
 `;
 
-const SearchIcon = styled(searchIcon)`
-  width: 20px;
-  fill: ${s.pallete.primary};
-  margin-right: 2px;
+const SearchButton = styled(PillButton)`
+  svg {
+    width: 20px;
+    fill: ${s.pallete.primary};
+    margin-right: 2px;
+  }
 `;
 
 export default function XsOnlySearchBar() {
@@ -47,9 +49,9 @@ export default function XsOnlySearchBar() {
 
   return (
     <StyledSearchBar ref={ref} sticked={sticked}>
-      <PillButton size="md" variant="white" IconComponent={SearchIcon}>
+      <SearchButton size="md" variant="white" IconComponent={SearchIcon}>
         어디로 여행가세요?
-      </PillButton>
+      </SearchButton>
     </StyledSearchBar>
   );
 }

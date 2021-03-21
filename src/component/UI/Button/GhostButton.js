@@ -3,7 +3,14 @@ import { NavLink } from 'react-router-dom';
 import { baseComponent } from 'S';
 import { css } from '@emotion/react';
 
-const linkStaticStyle = baseComponent.baseLink;
+const linkStaticStyle = `
+  ${baseComponent.baseLink}
+`;
+
+const NavLinkStaticStyle = `
+  text-decoration:none;
+  display: inline-block;
+`;
 const buttonStaticStyle = `
   ${baseComponent.baseButton}
   border:none;
@@ -16,14 +23,16 @@ export const GhostButton = React.forwardRef(
       href,
       to,
       target,
-      underline,
+      underline = false,
       effect = 'underline',
       ...otherProps
     },
     ref
   ) => {
     const Tag = href ? 'a' : to ? NavLink : 'button';
-    const dynamicStyles = [href || to ? linkStaticStyle : buttonStaticStyle];
+    const dynamicStyles = [
+      href ? linkStaticStyle : to ? NavLinkStaticStyle : buttonStaticStyle,
+    ];
 
     if (underline) {
       dynamicStyles.push('text-decoration: underline;');
@@ -39,6 +48,12 @@ export const GhostButton = React.forwardRef(
           `);
           break;
       }
+    }
+
+    if (to) {
+      dynamicStyles.push(`
+
+      `);
     }
 
     return (

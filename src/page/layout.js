@@ -1,22 +1,27 @@
 import React from 'react';
-import Home from '@page/home';
-import Login from '@page/login';
-import { UnderSmNavMenu, Footer, Header } from './common';
 import { Switch, Route } from 'react-router-dom';
+import LoginPages from '@page/loginPages/LoginPages';
+import Footer from '@page/common/Footer';
+import UnderSmNavMenu from '@page/common/UnderSmNavMenu';
+import Home from '@page/home';
+import Header from '@component/Header';
+import Divider from '@UI/Divider';
 
 export default function Layout() {
   return (
     <>
       <Header />
-      <UnderSmNavMenu showThreshold={100} />
       <Switch>
         <Route path="/" exact>
           <Home />
         </Route>
-        <Route path="/login">
+        {/* <Route path="/login">
           <Login />
-        </Route>
+        </Route> */}
       </Switch>
+      <LoginPages />
+      <UnderSmNavMenu showThreshold={100} />
+      <Divider />
       <Footer />
     </>
   );

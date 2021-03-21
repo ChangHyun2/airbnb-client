@@ -3,7 +3,7 @@ import s from 'S';
 import { PillButton } from '@UI/Button';
 import { GlobeIcon } from '@UI/Icon';
 import ProfileMenu from './navMenu/ProfileMenu';
-import { LocalSetting } from '@page/common';
+import LocalSetting from '@component/dialogs/LocalSetting';
 import { Transition } from 'react-transition-group';
 import Modal from '@UI/Modal';
 import { useToggle } from '@hooks';

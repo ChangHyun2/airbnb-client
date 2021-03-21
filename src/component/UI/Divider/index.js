@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { spacing } from 'S';
+import { spacing, pallete } from 'S';
 
 const sizes = {
   xs: spacing[4],
@@ -12,7 +12,7 @@ const sizes = {
 const SingleDivider = styled.div`
   width: 100%;
   height: 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1.5px solid ${pallete.grey0};
   margin: ${({ size }) => sizes[size]} 0;
 `;
 
@@ -24,17 +24,20 @@ const DoubleDivider = styled.div`
 
 const SPAN = styled.span`
   margin: 0 10px;
+  color: ${pallete.grey5};
+  font-weight: bold;
+  white-space: nowrap;
 `;
 
-const Divider = (props) =>
-  props.children ? (
-    <DoubleDivider size={props.size}>
+const Divider = ({ size, children, ...otherProps }) =>
+  children ? (
+    <DoubleDivider size={size} {...otherProps}>
       <SingleDivider />
-      <SPAN>{props.children}</SPAN>
+      <SPAN>{children}</SPAN>
       <SingleDivider />
     </DoubleDivider>
   ) : (
-    <SingleDivider size={props.size} />
+    <SingleDivider size={size} {...otherProps} />
   );
 
 export default Divider;

@@ -40,8 +40,8 @@ export const mdTo = ['lg', 'xl'].reduce(
   (mdTo, BREAKPOINT, i) => ({
     ...mdTo,
     [BREAKPOINT]: (cssRules) =>
-      `@media only screen and (min-width:${breakpoint[2]}) and (max-width:${
-        breakpoint[i + 2]
+      `@media only screen and (min-width:${breakpoint[2]}px) and (max-width:${
+        breakpoint[i + 3]
       }px){${cssRules}}`,
   }),
   {}

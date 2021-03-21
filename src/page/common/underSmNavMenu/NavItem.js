@@ -22,6 +22,7 @@ const NavLink = styled(navlink)`
   display: block;
   text-decoration: none;
   text-align: center;
+  color: ${s.pallete.grey5}
 `;
 
 // https://stackoverflow.com/questions/57117445/how-to-create-a-css-class-for-use-in-activeclassname

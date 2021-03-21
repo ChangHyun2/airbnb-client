@@ -2,8 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import s from 'S';
 import Show from '@component/Show';
-import OverMdSearchBar from '@page/Home/OverMdSearchBar';
-import { Logo, NavMenu, RoomAdventureTabs } from './overSmHeader/index';
+import OverMdSearchBar from './overSmHeader/OverMdSearchBar';
+import Logo from './overSmHeader/Logo';
+import NavMenu from './overSmHeader/NavMenu';
 
 const StyledOverSmHeader = styled.header`
   ${s.absolute}

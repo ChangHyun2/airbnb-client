@@ -14,8 +14,6 @@ const StyledNotice = styled.div`
 `;
 
 export default function Notice() {
-  const locatoin = useLocation();
-  console.log(location);
   return (
     <StyledNotice>
       <GhostButton

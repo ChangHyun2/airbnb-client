@@ -7,6 +7,9 @@ import path from './path';
 
 const Wrapper = styled.div`
   ${alignChild.rowCenter}
+  svg {
+    fill: currentColor;
+  }
 `;
 
 const strokeStyle = css`
@@ -34,46 +37,45 @@ const createIcon = (svg, isStrokeEmpty) =>
     }
   );
 
-export const heartIcon = createIcon(path.heart);
-export const searchIcon = createIcon(path.search);
-export const messageIcon = createIcon(path.message);
-export const profileIcon = createIcon(path.profile);
-export const loginIcon = createIcon(path.login);
+export const HeartIcon = createIcon(path.heart);
+export const SearchIcon = createIcon(path.search);
+export const MessageIcon = createIcon(path.message);
+export const ProfileIcon = createIcon(path.profile);
+export const LoginIcon = createIcon(path.login);
 export const AirbnbIcon = createIcon(path.airbnb);
-export const googleIcon = createIcon(path.google);
-export const facebookIcon = createIcon(path.facebook);
-export const houseIcon = createIcon(path.house);
-export const adventureIcon = createIcon(path.adventure);
-export const helpIcon = createIcon(path.help);
-export const emailIcon = createIcon(path.email);
-export const profileCardIcon = createIcon(path.profileCard);
-export const tropyIcon = createIcon(path.trophy);
-export const giftBoxIcon = createIcon(path.giftBox);
-export const settingIcon = createIcon(path.setting);
-export const arrowLeftIcon = createIcon(path.arrowLeft, true);
-export const closeIcon = createIcon(path.close, true);
+export const GoogleIcon = createIcon(path.google);
+export const FacebookIcon = createIcon(path.facebook);
+export const HouseIcon = createIcon(path.house);
+export const AdventureIcon = createIcon(path.adventure);
+export const HelpIcon = createIcon(path.help);
+export const EmailIcon = createIcon(path.email);
+export const ProfileCardIcon = createIcon(path.profileCard);
+export const TropyIcon = createIcon(path.trophy);
+export const GiftBoxIcon = createIcon(path.giftBox);
+export const SettingIcon = createIcon(path.setting);
+export const ArrowLeftIcon = createIcon(path.arrowLeft, true);
+export const CloseIcon = createIcon(path.close, true);
 export const AlertIcon = createIcon(path.alert, true);
 export const GlobeIcon = createIcon(path.globe, true);
 export const HamburgerIcon = createIcon(path.hamburger, true);
 
 const Icons = {
-  heart: heartIcon,
-  message: messageIcon,
+  heart: HeartIcon,
+  message: MessageIcon,
   Airbnb: AirbnbIcon,
-  profile: profileIcon,
-  search: searchIcon,
-  login: loginIcon,
-  Airbnb: AirbnbIcon,
-  google: googleIcon,
-  close: closeIcon,
-  facebook: facebookIcon,
-  house: houseIcon,
-  email: emailIcon,
-  profileCard: profileCardIcon,
-  tropy: tropyIcon,
-  giftBox: giftBoxIcon,
-  setting: settingIcon,
-  arrowLeft: arrowLeftIcon,
+  profile: ProfileIcon,
+  search: SearchIcon,
+  login: LoginIcon,
+  google: GoogleIcon,
+  close: CloseIcon,
+  facebook: FacebookIcon,
+  house: HouseIcon,
+  email: EmailIcon,
+  profileCard: ProfileCardIcon,
+  tropy: TropyIcon,
+  giftBox: GiftBoxIcon,
+  setting: SettingIcon,
+  arrowLeft: ArrowLeftIcon,
   Alert: AlertIcon,
   Globe: GlobeIcon,
   Hamburger: HamburgerIcon,

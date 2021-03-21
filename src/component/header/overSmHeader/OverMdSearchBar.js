@@ -1,9 +1,7 @@
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { searchIcon } from '@UI/Icon';
 import s from 'S';
+import { searchIcon } from '@UI/Icon';
 import { GhostButton, RoundButton } from '@UI/Button';
-import { Round } from '@component/UI/Button/Button.stories';
 
 const SearchButton = styled(RoundButton)`
   color: white;
@@ -64,6 +62,9 @@ const SearchBar = styled.div`
 
   border-radius: 32px;
   background-color: ${s.pallete.white};
+  ${s.under.md(`
+    top:130%;
+  `)}
 `;
 
 const StyledTab = styled.div`
@@ -102,12 +103,14 @@ const SearchBarItem = ({ title, children, ...otherProps }) => {
 
 export default function OverMdSearchBar() {
   return (
-    <StyledOverMdSearchBar>
-      <GhostButton size="sm">숙소</GhostButton>
-      <GhostButton size="sm">체험</GhostButton>
-      <GhostButton size="sm" href="#">
-        온라인 체험
-      </GhostButton>
+    <>
+      <StyledOverMdSearchBar>
+        <GhostButton size="sm">숙소</GhostButton>
+        <GhostButton size="sm">체험</GhostButton>
+        <GhostButton size="sm" href="#">
+          온라인 체험
+        </GhostButton>
+      </StyledOverMdSearchBar>
       <SearchBar>
         <SearchBarItem title="위치">
           <label htmlFor="location"></label>
@@ -125,12 +128,12 @@ export default function OverMdSearchBar() {
           { title: '체크아웃', content: '날짜 추가' },
           { title: '인원', content: '게스트 추가' },
         ].map(({ title, content }) => (
-          <SearchBarItem title={title}>
+          <SearchBarItem key={title} title={title}>
             <span>{content}</span>
           </SearchBarItem>
         ))}
-        <SearchButton IconComponent={searchIcon} size="lg" variant="primary" />
+        {/* <SearchButton IconComponent={searchIcon} size="lg" variant="primary" /> */}
       </SearchBar>
-    </StyledOverMdSearchBar>
+    </>
   );
 }

@@ -14,6 +14,7 @@ const devConfig = {
   output: {
     path: paths.appBuild,
     filename: 'static/js/[name].js',
+    publicPath: '/',
     chunkFilename: 'static/js/[name].chunk.js',
   },
   optimization: {
@@ -94,16 +95,17 @@ const devConfig = {
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-      filename: 'public/index.html',
+      filename: 'index.html',
     }),
     new CaseSensitivePathsWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
   devServer: {
     port: 5000,
-    index: 'public/index.html',
+    index: 'index.html',
     compress: true,
     stats: 'errors-only',
+    historyApiFallback: true,
   },
 };
 
